@@ -1,0 +1,141 @@
+@font-face {
+    src: url("./assets/Carnaval\ de\ Mai.ttf") format("truetype");
+    font-family: "carnaval";
+  }
+
+*{
+    margin:auto;
+    color: var(--pearl);
+    font-family:Arial, Helvetica, Verdana;
+}
+
+:root{
+    --richblack: #040f0f;
+    --falured:#6f1d1b;
+    --resedagreen:#657153;
+    --alabaster:#e0e2db;
+    --pearl:#e5dcc5;
+}
+
+body{
+    background: linear-gradient(var(--richblack)25%,var(--resedagreen)) no-repeat;
+    min-height: 100vh;
+    padding: 0 2rem;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    
+}
+
+h1{
+    font-family: "carnaval";
+    color: var(--falured);
+    font-stretch: semi-expanded;
+}
+
+p {
+    padding: 5%;
+}
+
+#jeu{
+    display: flex;
+    flex-direction: column;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: justify;
+    background: linear-gradient(var(--pearl)1%,var(--resedagreen)30%,var(--richblack)95%) no-repeat;
+    border-radius: 3rem;
+    filter: drop-shadow(0 0 90px var(--falured));
+}
+
+#back {
+    max-width: 100%;
+    border-radius: 25%;
+    filter: drop-shadow(0 0 10px #000);
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+
+#logo {
+    position: relative;
+    top: 0;
+}
+
+
+
+button:hover {
+    background-color: var(--resedagreen);
+    color: var(--richblack);
+    border-style: outset;
+    border-color: var(--falured);
+    border-radius: 15%;
+}
+
+/* Desktop  */
+@media screen and (min-width: 778px) { 
+    #jeu{  
+        min-height: 100px;
+        min-width: 100px;
+        max-width: 700px;
+        width: 50vw;
+    }
+    button {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        background-color: var(--falured);   
+        border-radius: 15%;
+        margin-bottom: 4%;
+        border-style: outset;
+        border-color: var(--alabaster);
+        padding: 1%;
+        min-width: 5rem;
+    }
+    #barre {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+
+/* Téléphone */
+@media screen and (max-width: 777px) {
+    button {
+        width:100%;
+        margin: 4%;
+        background-color: var(--falured);   
+        border-radius: 15%;
+        border-style: outset;
+        border-color: var(--alabaster);
+    }
+    button:hover {
+        background-color: var(--resedagreen);
+        color: var(--richblack);
+        border-style: outset;
+        border-color: var(--falured);
+        border-radius: 15%;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* Hauteur X et plus (patante fucké pour faire marché qqch dans le background) */
+@media screen and (min-height: 1000px) {
+    #jeu {
+        height: auto;
+    }
+}
+
+
+  
