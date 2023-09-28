@@ -103,7 +103,7 @@ let chapters = {
     silence : {
         titre: `aide silencieuse`,
         description: `La créature semble sourir et celle-ci te tend la main...`,
-        image: ``,
+        image: `wendigo`,
         bouttons: [
             {titre: 'tu refuse', 'destination': 'type goToChapter("briser")'}, 
 
