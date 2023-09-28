@@ -42,7 +42,7 @@ let chapters = {
     },
 
     defence : {
-        titre: `mort par auto-défence`,
+        titre: `Mort par autodéfense`,
         description: `La créature à un bon souper grâce à ton courage.`,
         image: `./images/bouffe.jpeg`,
         bouttons: [
@@ -84,7 +84,7 @@ let chapters = {
     },
 
     eternity : {
-        titre: `Amour illusoir`,
+        titre: `Amour illusoire`,
         description: `Félicitations, tu es l'âme sœur du Wendigo!
         Dommage que tu vas te réveiller dans les toilettes!`,
         image: `images/confused.png`,
@@ -92,7 +92,7 @@ let chapters = {
     },
 
     brisé : {
-        titre: `mort pour un rejet`,
+        titre: `Mort pour un rejet`,
         description: `Tu lui as brisé le cœur, donc la créature a pris le tien.`,
         image: `images/heart.jpeg`,
         bouttons: [
