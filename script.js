@@ -2,7 +2,7 @@ let chapters = {
     debut : {
         titre: `début insolite`,
         description: `Tu te réveilles dans une toilette qui pue et tu sors. Une fois sorti, tu entends une voix au loin... Veux-tu exploré les bruts suspects`,
-        image: ``,
+        image: "./images/Shrek's_toilet.jpeg",
         bouttons : [ 
             {titre: 'Ignore la voix en détresse ', 'destination': 'type goToChapter("ignore")'}, 
           
@@ -22,7 +22,7 @@ let chapters = {
     aventure : {
         titre: `rencontre insolite`,
         description: `Tu trouves une créature humanoïde qui gémit de douleur près d'un pin; elle semble effrayée...`,
-        image: ``,
+        image: `./images/trouve.jpeg`,
         bouttons: [
             {titre: 'Tu tente de la tuer', 'destination': 'type goToChapter("defence")'},
 
@@ -44,7 +44,7 @@ let chapters = {
     defence : {
         titre: `mort par auto-défence`,
         description: `La créature à un bon souper grâce à ton courage.`,
-        image: ``,
+        image: `./images/bouffe.jpeg`,
         bouttons: [
             {titre: '... au début', 'destination': 'type goToChapter("debut")'}
         ]    
@@ -53,7 +53,7 @@ let chapters = {
     aide : {
         titre: `Une méthode de secours`,
         description: `La créature est piégée par un piège à ours, sa jambe est coincée!`,
-        image: ``,
+        image: `images/Peur.jpeg`,
         bouttons: [
             {titre: 'Tu utilises la force', 'destination': 'type goToChapter("force")'},
 
@@ -66,7 +66,7 @@ let chapters = {
     force : {
         titre: `Double suicide`,
         description: `La créature t'attaque de douleur puis vous mourrez les deux de  vos blessures.`,
-        image: ``,
+        image: `./images/suicide.jpeg`,
         bouttons: [
             {titre: '... au début', 'destination': 'type goToChapter("debut")'}
         ]    
@@ -75,7 +75,7 @@ let chapters = {
     rassure : {
         titre: `Affection sauvage`,
         description: `La créature semble très prise de toi... `,
-        image: ``,
+        image: `./images/amour.jpeg`,
         bouttons: [
             {titre: 'tu accepte', 'destination': 'type goToChapter("eternity")'},
 
@@ -103,7 +103,7 @@ let chapters = {
     silence : {
         titre: `Aide silencieuse`,
         description: `La créature semble sourire et celle-ci te tend la main...`,
-        image: `wendigo`,
+        image: `./images/amour.jpeg`,
         bouttons: [
             {titre: 'tu refuse', 'destination': 'type goToChapter("briser")'}, 
 
@@ -114,7 +114,7 @@ let chapters = {
     incidieux : {
         titre: `Piège`,
         description: `La créature t'a piégé et elle te tue`,
-        image: ``,
+        image: `./images/piege.jpeg`,
         bouttons: [
             {titre: '... au début', 'destination': 'type goToChapter("debut")'}
         ]    
