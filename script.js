@@ -124,7 +124,7 @@ let chapters = {
 
 function goToChapter(clef) {
  if(chapters[clef]) {
-    console.log(`${chapters[clef].titre} \n ${chapters[clef].description} \n \n option \n ---------------------------------------- \n ${chapters[clef].bouttons[0].titre} \n ${chapters[clef].bouttons[0].destination}`);
+    console.log(`${chapters[clef].titre} \n ${chapters[clef].description} \n \n options \n ---------------------------------------- \n ${chapters[clef].bouttons[0].titre} \n ${chapters[clef].bouttons[0].destination}`);
     if (chapters[clef].bouttons[1]) {
         console.log(`\n ${chapters[clef].bouttons[1].titre} \n ${chapters[clef].bouttons[1].destination}`);
     }
