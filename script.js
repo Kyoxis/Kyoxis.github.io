@@ -1,6 +1,6 @@
 let chapters = {
     debut : {
-        titre: `début insolite`,
+        titre: `Début insolite`,
         description: `Tu te réveilles dans une toilette qui pue et tu sors. Une fois sorti, tu entends une voix au loin... Veux-tu exploré les bruts suspects`,
         image: "./images/Shrek's_toilet.jpeg",
         bouttons : [ 
@@ -11,7 +11,7 @@ let chapters = {
     },
 
     ignore : {
-        titre: `mort solitaire`,
+        titre: `Mort solitaire`,
         description: `Tu as ignoré la voix qui se lamentait. Malheureusement, tu n'as aucune expertise en survie et tu meurs de faim au bout de 8 jours de souffrance !`,
         image: `images/faim.jpeg`,
         bouttons: [
@@ -20,7 +20,7 @@ let chapters = {
     },
 
     aventure : {
-        titre: `rencontre insolite`,
+        titre: `Rencontre insolite`,
         description: `Tu trouves une créature humanoïde qui gémit de douleur près d'un pin; elle semble effrayée...`,
         image: `./images/trouve.jpeg`,
         bouttons: [
@@ -33,7 +33,7 @@ let chapters = {
     },
 
     pitie : {
-        titre: `hésitation`,
+        titre: `Hésitation`,
         description: `Tu fuis la créature, mais ton cœur te ramène à l'écoute des gémissements de la créature en détresse!`,
         image: `images/pense.jpeg`,
         bouttons: [{
