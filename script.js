@@ -13,7 +13,7 @@ let chapters = {
     ignore : {
         titre: `mort solitaire`,
         description: `Tu as ignoré la voix qui se lamentait. Malheureusement, tu n'as aucune expertise en survie et tu meurs de faim au bout de 8 jours de souffrance !`,
-        image: ``,
+        image: `images/faim.jpeg`,
         bouttons: [
             {titre: '... au début', 'destination': 'type goToChapter("debut")'}, 
         ]    
@@ -35,7 +35,7 @@ let chapters = {
     pitie : {
         titre: `hésitation`,
         description: `Tu fuis la créature, mais ton cœur te ramène à l'écoute des gémissements de la créature en détresse!`,
-        image: ``,
+        image: `images/pense.jpeg`,
         bouttons: [{
             titre: '...', 'destination': 'type goToChapter("debut")'}
         ]    
@@ -87,14 +87,14 @@ let chapters = {
         titre: `Amour illusoir`,
         description: `Félicitations, tu es l'âme sœur du Wendigo!
         Dommage que tu vas te réveiller dans les toilettes!`,
-        image: ``,
+        image: `images/confused.png`,
         bouttons: [{titre: 'refaire une partie', 'destination': 'type goToChapter("debut")'}]    
     },
 
     brisé : {
         titre: `mort pour un rejet`,
         description: `Tu lui as brisé le cœur, donc la créature a pris le tien.`,
-        image: ``,
+        image: `images/heart.jpeg`,
         bouttons: [
             {titre: '... au début', 'destination': 'type goToChapter("debut")'}
         ]    
