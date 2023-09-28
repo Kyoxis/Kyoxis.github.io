@@ -3,7 +3,7 @@ let chapters = {
         titre: `début insolite`,
         description: `tu te réveil dans une toiletee qui pue et tu sort. Une fois sorti, tu entend une voix au loin...`,
         image: ``,
-        boutons : [ 
+        bouttons : [ 
             {titre: 'ignore la voix en détresse ', 'destination': 'type goToChapter("ignore")'}, 
           
             {titre: 'aller voir ce qui souffre autant', 'destination': 'type goToChapter("aventure")'},
@@ -14,7 +14,7 @@ let chapters = {
         titre: `mort solitaire`,
         description: `tu as ignoré la voix qui se lamentait. malheureusement, tu n'as aucune expertise en survie et tu meurt de faim au bout de 8 jour de soufrance !`,
         image: ``,
-        boutton: [
+        bouttons: [
             {titre: 'retour au début', 'destination': 'type goToChapter("debut")'}, 
         ]    
     },
@@ -23,7 +23,7 @@ let chapters = {
         titre: `rencontre insolite`,
         description: `tu trouve une créature humanoïd qui gémis de douleur près d'un pin...`,
         image: ``,
-        boutton: [
+        bouttons: [
             {titre: 'tu fuis', 'destination': 'type goToChapter("pitie")'},
 
             {titre: 'tu tente de la tuer', 'destination': 'type goToChapter("defence")'},
@@ -36,7 +36,7 @@ let chapters = {
         titre: `hésitation `,
         description: `Tu fuit la créature, mais ton coeur te ramène à l'écoute des gémissements de la créature en détresse!`,
         image: ``,
-        boutton: [{
+        bouttons: [{
             titre: '...', 'destination': 'type goToChapter("debut")'}
         ]    
     },
@@ -45,7 +45,7 @@ let chapters = {
         titre: `mort par auto-défence`,
         description: `La créature à un bon souper grâce ton courage.`,
         image: ``,
-        boutton: [
+        bouttons: [
             {titre: 'retour au début', 'destination': 'type goToChapter("debut")'}
         ]    
     },
@@ -54,7 +54,7 @@ let chapters = {
         titre: `Une méthode de secours`,
         description: `La créature est piégé par un piège à ours, sa jambe est coincé!`,
         image: ``,
-        boutton: [
+        bouttons: [
             {titre: 'tu utilise la force', 'destination': 'type goToChapter("force")'},
 
             {titre: 'tu calme la créature', 'destination': 'type goToChapter("rassure")'},
@@ -67,7 +67,7 @@ let chapters = {
         titre: `double suicide`,
         description: `La créature t'attaque de douleur puis vous mourrez les deux de  vos blessures.`,
         image: ``,
-        boutton: [
+        bouttons: [
             {titre: 'retour au début', 'destination': 'type goToChapter("debut")'}
         ]    
     },
@@ -76,7 +76,7 @@ let chapters = {
         titre: `affection sauvage`,
         description: `La créature semble très prise de toi... `,
         image: ``,
-        boutton: [
+        bouttons: [
             {titre: 'tu accepte', 'destination': 'type goToChapter("eternity")'},
 
             {titre: 'tu refuse', 'destination': 'type goToChapter("briser")'}, 
@@ -88,14 +88,14 @@ let chapters = {
         description: `Félicitation, tu est l'âme soeur du Wendigo!
         Domage que tu vas te réveiller dans les toilettes!`,
         image: ``,
-        boutton: [{titre: 'refaire une partie', 'destination': 'type goToChapter("debut")'}]    
+        bouttons: [{titre: 'refaire une partie', 'destination': 'type goToChapter("debut")'}]    
     },
 
     brisé : {
         titre: `mort pour un rejet`,
         description: `Tu lui a brisé le coeur, donc la créature à prit le tien.`,
         image: ``,
-        boutton: [
+        bouttons: [
             {titre: 'retour au début', 'destination': 'type goToChapter("debut")'}
         ]    
     },
@@ -104,7 +104,7 @@ let chapters = {
         titre: `aide silencieuse`,
         description: `La créature semble sourir et celle-ci te tend la main...`,
         image: ``,
-        boutton: [
+        bouttons: [
             {titre: 'tu refuse', 'destination': 'type goToChapter("briser")'}, 
 
             {titre: 'tu accepte', 'destination': 'type goToChapter("incidieux")'}, 
@@ -115,18 +115,29 @@ let chapters = {
         titre: `piège`,
         description: `La créature t'a piégé et elle te tue`,
         image: ``,
-        boutton: [
+        bouttons: [
             {titre: 'retour au début', 'destination': 'type goToChapter("debut")'}
         ]    
     }
 }
 
 
-/*function goToChapter(chapter) {
- if(chapter) {
-
+function goToChapter(clef) {
+ if(chapters[clef]) {
+    console.log(`${chapters[clef].titre} \n ${chapters[clef].description} \n \n option \n ---------------------------------------- \n ${chapters[clef].bouttons[0].titre} \n ${chapters[clef].bouttons[0].destination}`);
+    if (chapters[clef].bouttons[1]) {
+        console.log(`\n ${chapters[clef].bouttons[1].titre} \n ${chapters[clef].bouttons[1].destination}`);
+    }
+    if (chapters[clef].bouttons[2]) {
+        console.log(`\n ${chapters[clef].bouttons[2].titre} \n ${chapters[clef].bouttons[2].destination}`);
+    }
  }
-}*/
+ else {
+    console.log(`fuck you`);
+ }
+}
+
+goToChapter(`debut`);
 
 /*chapters = {
     debut: {
@@ -148,3 +159,6 @@ fonction goToChapter(chapter) {
 }
  
  Ici on doit appeler la fonction pour faire apparaitre le premier chapitre au chargement de la page.*/
+
+
+ 
