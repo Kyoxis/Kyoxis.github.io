@@ -4,9 +4,9 @@ let chapters = {
         description: `Tu te réveilles dans une toilette qui pue et tu sors. Une fois sorti, tu entends une voix au loin... Veux-tu exploré les bruts suspects`,
         image: ``,
         bouttons : [ 
-            {titre: 'ignore la voix en détresse ', 'destination': 'type goToChapter("ignore")'}, 
+            {titre: 'Ignore la voix en détresse ', 'destination': 'type goToChapter("ignore")'}, 
           
-            {titre: 'aller voir ce qui souffre autant', 'destination': 'type goToChapter("aventure")'},
+            {titre: 'Aller voir ce qui souffre autant', 'destination': 'type goToChapter("aventure")'},
           ]
     },
 
@@ -15,7 +15,7 @@ let chapters = {
         description: `Tu as ignoré la voix qui se lamentait. Malheureusement, tu n'as aucune expertise en survie et tu meurs de faim au bout de 8 jours de souffrance !`,
         image: ``,
         bouttons: [
-            {titre: 'retour au début', 'destination': 'type goToChapter("debut")'}, 
+            {titre: '... au début', 'destination': 'type goToChapter("debut")'}, 
         ]    
     },
 
@@ -24,17 +24,17 @@ let chapters = {
         description: `Tu trouves une créature humanoïde qui gémit de douleur près d'un pin; elle semble effrayée...`,
         image: ``,
         bouttons: [
-            {titre: 'tu tente de la tuer', 'destination': 'type goToChapter("defence")'},
+            {titre: 'Tu tente de la tuer', 'destination': 'type goToChapter("defence")'},
 
-            {titre: 'tu fuis', 'destination': 'type goToChapter("pitie")'},
+            {titre: 'Tu fuis', 'destination': 'type goToChapter("pitie")'},
 
-            {titre: 'tu essai de l\'aider', 'destination': 'type goToChapter("aide")'},
+            {titre: 'Tu essai de l\'aider', 'destination': 'type goToChapter("aide")'},
         ]    
     },
 
     pitie : {
         titre: `hésitation`,
-        description: `Tu fuit la créature, mais ton coeur te ramène à l'écoute des gémissements de la créature en détresse!`,
+        description: `Tu fuis la créature, mais ton cœur te ramène à l'écoute des gémissements de la créature en détresse!`,
         image: ``,
         bouttons: [{
             titre: '...', 'destination': 'type goToChapter("debut")'}
@@ -43,37 +43,37 @@ let chapters = {
 
     defence : {
         titre: `mort par auto-défence`,
-        description: `La créature à un bon souper grâce ton courage.`,
+        description: `La créature à un bon souper grâce à ton courage.`,
         image: ``,
         bouttons: [
-            {titre: 'retour au début', 'destination': 'type goToChapter("debut")'}
+            {titre: '... au début', 'destination': 'type goToChapter("debut")'}
         ]    
     },
 
     aide : {
         titre: `Une méthode de secours`,
-        description: `La créature est piégé par un piège à ours, sa jambe est coincé!`,
+        description: `La créature est piégée par un piège à ours, sa jambe est coincée!`,
         image: ``,
         bouttons: [
-            {titre: 'tu utilise la force', 'destination': 'type goToChapter("force")'},
+            {titre: 'Tu utilises la force', 'destination': 'type goToChapter("force")'},
 
-            {titre: 'tu calme la créature', 'destination': 'type goToChapter("rassure")'},
+            {titre: 'Tu calmes la créature', 'destination': 'type goToChapter("rassure")'},
 
-            {titre: 'tu l\'aide sans parler', 'destination': 'type goToChapter("silence")'}, 
+            {titre: 'Tu l\'aide sans parler', 'destination': 'type goToChapter("silence")'}, 
         ]    
     },
 
     force : {
-        titre: `double suicide`,
+        titre: `Double suicide`,
         description: `La créature t'attaque de douleur puis vous mourrez les deux de  vos blessures.`,
         image: ``,
         bouttons: [
-            {titre: 'retour au début', 'destination': 'type goToChapter("debut")'}
+            {titre: '... au début', 'destination': 'type goToChapter("debut")'}
         ]    
     },
 
     rassure : {
-        titre: `affection sauvage`,
+        titre: `Affection sauvage`,
         description: `La créature semble très prise de toi... `,
         image: ``,
         bouttons: [
@@ -84,25 +84,25 @@ let chapters = {
     },
 
     eternity : {
-        titre: `amour illusoir`,
-        description: `Félicitation, tu est l'âme soeur du Wendigo!
-        Domage que tu vas te réveiller dans les toilettes!`,
+        titre: `Amour illusoir`,
+        description: `Félicitations, tu es l'âme sœur du Wendigo!
+        Dommage que tu vas te réveiller dans les toilettes!`,
         image: ``,
         bouttons: [{titre: 'refaire une partie', 'destination': 'type goToChapter("debut")'}]    
     },
 
     brisé : {
         titre: `mort pour un rejet`,
-        description: `Tu lui a brisé le coeur, donc la créature à prit le tien.`,
+        description: `Tu lui as brisé le cœur, donc la créature a pris le tien.`,
         image: ``,
         bouttons: [
-            {titre: 'retour au début', 'destination': 'type goToChapter("debut")'}
+            {titre: '... au début', 'destination': 'type goToChapter("debut")'}
         ]    
     },
 
     silence : {
-        titre: `aide silencieuse`,
-        description: `La créature semble sourir et celle-ci te tend la main...`,
+        titre: `Aide silencieuse`,
+        description: `La créature semble sourire et celle-ci te tend la main...`,
         image: `wendigo`,
         bouttons: [
             {titre: 'tu refuse', 'destination': 'type goToChapter("briser")'}, 
@@ -112,11 +112,11 @@ let chapters = {
     },
 
     incidieux : {
-        titre: `piège`,
+        titre: `Piège`,
         description: `La créature t'a piégé et elle te tue`,
         image: ``,
         bouttons: [
-            {titre: 'retour au début', 'destination': 'type goToChapter("debut")'}
+            {titre: '... au début', 'destination': 'type goToChapter("debut")'}
         ]    
     }
 }
