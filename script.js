@@ -1,7 +1,7 @@
-let chapters = {
+chapiters = {
     debut : {
         titre: `début insolite`,
-        description: `tu te réveil dans une toiletee qui pue et tu sort. Une fois sorti, tu entend une voix au loin...`,
+        description: `Tu te réveilles dans une toilette qui pue et tu sors. Une fois sorti, tu entends une voix au loin... Veux-tu exploré les bruts suspects`,
         image: ``,
         bouttons : [ 
             {titre: 'ignore la voix en détresse ', 'destination': 'type goToChapter("ignore")'}, 
@@ -12,7 +12,7 @@ let chapters = {
 
     ignore : {
         titre: `mort solitaire`,
-        description: `tu as ignoré la voix qui se lamentait. malheureusement, tu n'as aucune expertise en survie et tu meurt de faim au bout de 8 jour de soufrance !`,
+        description: `Tu as ignoré la voix qui se lamentait. Malheureusement, tu n'as aucune expertise en survie et tu meurs de faim au bout de 8 jours de souffrance !`,
         image: ``,
         bouttons: [
             {titre: 'retour au début', 'destination': 'type goToChapter("debut")'}, 
@@ -21,19 +21,19 @@ let chapters = {
 
     aventure : {
         titre: `rencontre insolite`,
-        description: `tu trouve une créature humanoïd qui gémis de douleur près d'un pin...`,
+        description: `Tu trouves une créature humanoïde qui gémit de douleur près d'un pin; elle semble effrayée...`,
         image: ``,
         bouttons: [
-            {titre: 'tu fuis', 'destination': 'type goToChapter("pitie")'},
-
             {titre: 'tu tente de la tuer', 'destination': 'type goToChapter("defence")'},
+
+            {titre: 'tu fuis', 'destination': 'type goToChapter("pitie")'},
 
             {titre: 'tu essai de l\'aider', 'destination': 'type goToChapter("aide")'},
         ]    
     },
 
     pitie : {
-        titre: `hésitation `,
+        titre: `hésitation`,
         description: `Tu fuit la créature, mais ton coeur te ramène à l'écoute des gémissements de la créature en détresse!`,
         image: ``,
         bouttons: [{
