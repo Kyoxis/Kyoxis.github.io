@@ -1,144 +1,151 @@
 let chapters = {
-    debut : {
-        titre: `Début insolite`,
-        description: `Tu te réveilles dans une toilette qui pue et tu sors. Une fois sorti, tu entends une voix au loin... Veux-tu exploré les bruts suspects`,
-        image: "./images/Shrek's_toilet.jpeg",
-        bouttons : [ 
-            {titre: '1- Ignore la voix en détresse ', 'destination': 'goToChapter("ignore")'}, 
-          
-            {titre: '2- Aller voir ce qui souffre autant', 'destination': 'goToChapter("aventure")'},
-          ]
-    },
+  debut: {
+    titre: `Début insolite`,
+    description: `Tu te réveilles dans une toilette qui pue et tu sors. Une fois sorti, tu entends une voix au loin... Veux-tu exploré les bruts suspects`,
+    image: "./images/Shrek's_toilet.jpeg",
+    bouttons: [
+      {
+        titre: "1- Ignore la voix en détresse ",
+        destination: 'goToChapter("ignore")',
+      },
 
-    ignore : {
-        titre: `Mort solitaire`,
-        description: `Tu as ignoré la voix qui se lamentait. Malheureusement, tu n'as aucune expertise en survie et tu meurs de faim au bout de 8 jours de souffrance !`,
-        image: `images/faim.jpeg`,
-        bouttons: [
-            {titre: '... au début', 'destination': 'goToChapter("debut")'}, 
-        ]    
-    },
+      {
+        titre: "2- Aller voir ce qui souffre autant",
+        destination: 'goToChapter("aventure")',
+      },
+    ],
+  },
 
-    aventure : {
-        titre: `Rencontre insolite`,
-        description: `Tu trouves une créature humanoïde qui gémit de douleur près d'un pin; elle semble effrayée...`,
-        image: `./images/trouve.jpeg`,
-        bouttons: [
-            {titre: '1- Tu tente de la tuer', 'destination': 'goToChapter("defence")'},
+  ignore: {
+    titre: `Mort solitaire`,
+    description: `Tu as ignoré la voix qui se lamentait. Malheureusement, tu n'as aucune expertise en survie et tu meurs de faim au bout de 8 jours de souffrance !`,
+    image: `images/faim.jpeg`,
+    bouttons: [{ titre: "... au début", destination: 'goToChapter("debut")' }],
+  },
 
-            {titre: '2- Tu fuis', 'destination': 'goToChapter("pitie")'},
+  aventure: {
+    titre: `Rencontre insolite`,
+    description: `Tu trouves une créature humanoïde qui gémit de douleur près d'un pin; elle semble effrayée...`,
+    image: `./images/trouve.jpeg`,
+    bouttons: [
+      {
+        titre: "1- Tu tente de la tuer",
+        destination: 'goToChapter("defence")',
+      },
 
-            {titre: '3- Tu essai de l\'aider', 'destination': 'goToChapter("aide")'},
-        ]    
-    },
+      { titre: "2- Tu fuis", destination: 'goToChapter("pitie")' },
 
-    pitie : {
-        titre: `Hésitation`,
-        description: `Tu fuis la créature, mais ton cœur te ramène à l'écoute des gémissements de la créature en détresse!`,
-        image: `images/pense.jpeg`,
-        bouttons: [{
-            titre: '...', 'destination': 'goToChapter("debut")'}
-        ]    
-    },
+      { titre: "3- Tu essai de l'aider", destination: 'goToChapter("aide")' },
+    ],
+  },
 
-    defence : {
-        titre: `Mort par autodéfense`,
-        description: `La créature à un bon souper grâce à ton courage.`,
-        image: `./images/bouffe.jpeg`,
-        bouttons: [
-            {titre: '... au début', 'destination': 'goToChapter("debut")'}
-        ]    
-    },
+  pitie: {
+    titre: `Hésitation`,
+    description: `Tu fuis la créature, mais ton cœur te ramène à l'écoute des gémissements de la créature en détresse!`,
+    image: `images/pense.jpeg`,
+    bouttons: [
+      {
+        titre: "...",
+        destination: 'goToChapter("debut")',
+      },
+    ],
+  },
 
-    aide : {
-        titre: `Une méthode de secours`,
-        description: `La créature est piégée par un piège à ours, sa jambe est coincée!`,
-        image: `images/Peur.jpeg`,
-        bouttons: [
-            {titre: '1- Tu utilises la force', 'destination': 'goToChapter("force")'},
+  defence: {
+    titre: `Mort par autodéfense`,
+    description: `La créature à un bon souper grâce à ton courage.`,
+    image: `./images/bouffe.jpeg`,
+    bouttons: [{ titre: "... au début", destination: 'goToChapter("debut")' }],
+  },
 
-            {titre: '2- Tu calmes la créature', 'destination': 'goToChapter("rassure")'},
+  aide: {
+    titre: `Une méthode de secours`,
+    description: `La créature est piégée par un piège à ours, sa jambe est coincée!`,
+    image: `images/Peur.jpeg`,
+    bouttons: [
+      { titre: "1- Tu utilises la force", destination: 'goToChapter("force")' },
 
-            {titre: '3- Tu l\'aide sans parler', 'destination': 'goToChapter("silence")'}, 
-        ]    
-    },
+      {
+        titre: "2- Tu calmes la créature",
+        destination: 'goToChapter("rassure")',
+      },
 
-    force : {
-        titre: `Double suicide`,
-        description: `La créature t'attaque de douleur puis vous mourrez les deux de  vos blessures.`,
-        image: `./images/suicide.jpeg`,
-        bouttons: [
-            {titre: '... au début', 'destination': 'goToChapter("debut")'}
-        ]    
-    },
+      {
+        titre: "3- Tu l'aide sans parler",
+        destination: 'goToChapter("silence")',
+      },
+    ],
+  },
 
-    rassure : {
-        titre: `Affection sauvage`,
-        description: `La créature semble très prise de toi... `,
-        image: `./images/amour.jpeg`,
-        bouttons: [
-            {titre: '1- tu accepte', 'destination': 'goToChapter("eternity")'},
+  force: {
+    titre: `Double suicide`,
+    description: `La créature t'attaque de douleur puis vous mourrez les deux de  vos blessures.`,
+    image: `./images/suicide.jpeg`,
+    bouttons: [{ titre: "... au début", destination: 'goToChapter("debut")' }],
+  },
 
-            {titre: '2- tu refuse', 'destination': 'goToChapter("briser")'}, 
-        ]    
-    },
+  rassure: {
+    titre: `Affection sauvage`,
+    description: `La créature semble très prise de toi... `,
+    image: `./images/amour.jpeg`,
+    bouttons: [
+      { titre: "1- tu accepte", destination: 'goToChapter("eternity")' },
 
-    eternity : {
-        titre: `Amour illusoire`,
-        description: `Félicitations, tu es l'âme sœur du Wendigo!
+      { titre: "2- tu refuse", destination: 'goToChapter("briser")' },
+    ],
+  },
+
+  eternity: {
+    titre: `Amour illusoire`,
+    description: `Félicitations, tu es l'âme sœur du Wendigo!
         Dommage que tu vas te réveiller dans les toilettes!`,
-        image: `images/confused.png`,
-        bouttons: [{titre: 'refaire une partie', 'destination': 'goToChapter("debut")'}]    
-    },
+    image: `images/confused.png`,
+    bouttons: [
+      { titre: "refaire une partie", destination: 'goToChapter("debut")' },
+    ],
+  },
 
-    brisé : {
-        titre: `Mort pour un rejet`,
-        description: `Tu lui as brisé le cœur, donc la créature a pris le tien.`,
-        image: `images/heart.jpeg`,
-        bouttons: [
-            {titre: '... au début', 'destination': 'goToChapter("debut")'}
-        ]    
-    },
+  brisé: {
+    titre: `Mort pour un rejet`,
+    description: `Tu lui as brisé le cœur, donc la créature a pris le tien.`,
+    image: `images/heart.jpeg`,
+    bouttons: [{ titre: "... au début", destination: 'goToChapter("debut")' }],
+  },
 
-    silence : {
-        titre: `Aide silencieuse`,
-        description: `La créature semble sourire et celle-ci te tend la main...`,
-        image: `./images/amour.jpeg`,
-        bouttons: [
-            {titre: '1- tu refuse', 'destination': 'goToChapter("briser")'}, 
+  silence: {
+    titre: `Aide silencieuse`,
+    description: `La créature semble sourire et celle-ci te tend la main...`,
+    image: `./images/amour.jpeg`,
+    bouttons: [
+      { titre: "1- tu refuse", destination: 'goToChapter("briser")' },
 
-            {titre: '2- tu accepte', 'destination': 'goToChapter("incidieux")'}, 
-        ]    
-    },
+      { titre: "2- tu accepte", destination: 'goToChapter("incidieux")' },
+    ],
+  },
 
-    incidieux : {
-        titre: `Piège`,
-        description: `La créature t'a piégé et elle te tue`,
-        image: `./images/piege.jpeg`,
-        bouttons: [
-            {titre: '... au début', 'destination': 'goToChapter("debut")'}
-        ]    
-    }
-}
-
+  incidieux: {
+    titre: `Piège`,
+    description: `La créature t'a piégé et elle te tue`,
+    image: `./images/piege.jpeg`,
+    bouttons: [{ titre: "... au début", destination: 'goToChapter("debut")' }],
+  },
+};
 
 function goToChapter(clef) {
- if(chapters[clef]) {
-    console.log(`${chapters[clef].titre} \n ${chapters[clef].description} \n \n options \n ---------------------------------------- \n ${chapters[clef].bouttons[0].titre} \n ${chapters[clef].bouttons[0].destination}`);
-    if (chapters[clef].bouttons[1]) {
-        console.log(`\n ${chapters[clef].bouttons[1].titre} \n ${chapters[clef].bouttons[1].destination}`);
-    }
-    if (chapters[clef].bouttons[2]) {
-        console.log(`\n ${chapters[clef].bouttons[2].titre} \n ${chapters[clef].bouttons[2].destination}`);
-    }
- }
- else {
-    console.log(`fuck you`);
- }
+  let chapitre = chapters[clef];
+  if (chapitre) {
+    console.log(`${chapitre.titre} \n ${chapitre.description}`);
+    let arr = chapitre.bouttons;
+    arr.forEach((bouton) => {
+      console.log(`\n \n ${bouton.titre} \n ${bouton.destination}`);
+    });
+  } else {
+    console.log(`there's nothing here human!`);
+  }
 }
 
 goToChapter(`debut`);
-
+ /*` \n \n options \n ---------------------------------------- \n ${chapters[clef].bouttons[0].titre} \n ${chapters[clef].bouttons[0].destination}\n ${chapters[clef].bouttons[1].titre} \n ${chapters[clef].bouttons[1].destination} \n \n ${chapters[clef].bouttons[2].titre} \n ${chapters[clef].bouttons[2].destination}`*/
 /*chapters = {
     debut: {
          le titre
@@ -160,5 +167,4 @@ fonction goToChapter(chapter) {
  
  Ici on doit appeler la fonction pour faire apparaitre le premier chapitre au chargement de la page.*/
 
-
- //couleurs #040f0f, #6f1d1b, #657153, #e0e2db, #e5dcc5
+//couleurs #040f0f, #6f1d1b, #657153, #e0e2db, #e5dcc5
