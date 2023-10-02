@@ -105,21 +105,20 @@ let chapters = {
     ],
   },
 
-  brisé: {
+  briser: {
     titre: `Mort pour un rejet`,
     description: `Tu lui as brisé le cœur, donc la créature a pris le tien.`,
     image: `images/heart.jpeg`,
-    bouttons: [{ titre: "... au début", destination: "debut"}],
+    bouttons: [{ titre: "... recommencez...", destination: "debut"}],
   },
 
   silence: {
     titre: `Aide silencieuse`,
     description: `La créature semble sourire et celle-ci te tend la main...`,
     image: `./images/amour.jpeg`,
-    bouttons: [
-      { titre: "1- tu refuse", destination: "briser" },
-
-      { titre: "2- tu accepte", destination: "incidieux" },
+    bouttons: [ 
+      { titre: "1- tu accepte", destination: "incidieux" },
+      { titre: "2- tu refuse", destination: "briser" },
     ],
   },
 
