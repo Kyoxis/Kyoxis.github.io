@@ -1,17 +1,17 @@
 let chapters = {
   debut: {
     titre: `Début insolite`,
-    description: `Tu te réveilles dans une toilette qui pue et tu sors. Une fois sorti, tu entends une voix au loin... Veux-tu exploré les bruts suspects`,
+    description: `Tu te réveilles dans une toilette qui pue et tu sors. Une fois sorti, tu entends une voix au loin... Veux-tu exploré les bruts suspects?`,
     image: "./images/Shrek's_toilet.jpeg",
     bouttons: [
       {
         titre: "1- Ignore la voix en détresse ",
-        destination: 'goToChapter("ignore")',
+        destination: "ignore",
       },
 
       {
         titre: "2- Aller voir ce qui souffre autant",
-        destination: 'goToChapter("aventure")',
+        destination: "aventure",
       },
     ],
   },
@@ -20,7 +20,7 @@ let chapters = {
     titre: `Mort solitaire`,
     description: `Tu as ignoré la voix qui se lamentait. Malheureusement, tu n'as aucune expertise en survie et tu meurs de faim au bout de 8 jours de souffrance !`,
     image: `images/faim.jpeg`,
-    bouttons: [{ titre: "... au début", destination: 'goToChapter("debut")' }],
+    bouttons: [{ titre: "... au début", destination: "debut" }],
   },
 
   aventure: {
@@ -30,12 +30,12 @@ let chapters = {
     bouttons: [
       {
         titre: "1- Tu tente de la tuer",
-        destination: 'goToChapter("defence")',
+        destination: "defence",
       },
 
-      { titre: "2- Tu fuis", destination: 'goToChapter("pitie")' },
+      { titre: "2- Tu fuis", destination: "pitie" },
 
-      { titre: "3- Tu essai de l'aider", destination: 'goToChapter("aide")' },
+      { titre: "3- Tu essai de l'aider", destination: "aide" },
     ],
   },
 
@@ -46,7 +46,7 @@ let chapters = {
     bouttons: [
       {
         titre: "...",
-        destination: 'goToChapter("debut")',
+        destination: "debut",
       },
     ],
   },
@@ -55,7 +55,7 @@ let chapters = {
     titre: `Mort par autodéfense`,
     description: `La créature à un bon souper grâce à ton courage.`,
     image: `./images/bouffe.jpeg`,
-    bouttons: [{ titre: "... au début", destination: 'goToChapter("debut")' }],
+    bouttons: [{ titre: "... au début", destination: "debut" }],
   },
 
   aide: {
@@ -63,16 +63,16 @@ let chapters = {
     description: `La créature est piégée par un piège à ours, sa jambe est coincée!`,
     image: `images/Peur.jpeg`,
     bouttons: [
-      { titre: "1- Tu utilises la force", destination: 'goToChapter("force")' },
+      { titre: "1- Tu utilises la force", destination: "force" },
 
       {
         titre: "2- Tu calmes la créature",
-        destination: 'goToChapter("rassure")',
+        destination: "rassure",
       },
 
       {
         titre: "3- Tu l'aide sans parler",
-        destination: 'goToChapter("silence")',
+        destination: "silence",
       },
     ],
   },
@@ -81,7 +81,7 @@ let chapters = {
     titre: `Double suicide`,
     description: `La créature t'attaque de douleur puis vous mourrez les deux de  vos blessures.`,
     image: `./images/suicide.jpeg`,
-    bouttons: [{ titre: "... au début", destination: 'goToChapter("debut")' }],
+    bouttons: [{ titre: "... au début", destination: "debut" }],
   },
 
   rassure: {
@@ -89,9 +89,9 @@ let chapters = {
     description: `La créature semble très prise de toi... `,
     image: `./images/amour.jpeg`,
     bouttons: [
-      { titre: "1- tu accepte", destination: 'goToChapter("eternity")' },
+      { titre: "1- tu accepte", destination: "eternity" },
 
-      { titre: "2- tu refuse", destination: 'goToChapter("briser")' },
+      { titre: "2- tu refuse", destination: "briser" },
     ],
   },
 
@@ -101,7 +101,7 @@ let chapters = {
         Dommage que tu vas te réveiller dans les toilettes!`,
     image: `images/confused.png`,
     bouttons: [
-      { titre: "refaire une partie", destination: 'goToChapter("debut")' },
+      { titre: "refaire une partie", destination: "debut" },
     ],
   },
 
@@ -109,7 +109,7 @@ let chapters = {
     titre: `Mort pour un rejet`,
     description: `Tu lui as brisé le cœur, donc la créature a pris le tien.`,
     image: `images/heart.jpeg`,
-    bouttons: [{ titre: "... au début", destination: 'goToChapter("debut")' }],
+    bouttons: [{ titre: "... au début", destination: "debut"}],
   },
 
   silence: {
@@ -117,9 +117,9 @@ let chapters = {
     description: `La créature semble sourire et celle-ci te tend la main...`,
     image: `./images/amour.jpeg`,
     bouttons: [
-      { titre: "1- tu refuse", destination: 'goToChapter("briser")' },
+      { titre: "1- tu refuse", destination: "briser" },
 
-      { titre: "2- tu accepte", destination: 'goToChapter("incidieux")' },
+      { titre: "2- tu accepte", destination: "incidieux" },
     ],
   },
 
@@ -127,24 +127,57 @@ let chapters = {
     titre: `Piège`,
     description: `La créature t'a piégé et elle te tue`,
     image: `./images/piege.jpeg`,
-    bouttons: [{ titre: "... au début", destination: 'goToChapter("debut")' }],
+    bouttons: [{ titre: "... au début", destination: "debut" }],
   },
 };
 
+let image = document.querySelector(`#back`)
+let titre = document.querySelector(`h1`);
+let description = document.querySelector(`p`)
+
+
+// Supprime tous les boutons enfants du div .boutons 
+
+const bouttons = document.querySelector('.boutons'); 
+
 function goToChapter(clef) {
+  while (bouttons.firstChild) {
+    bouttons.removeChild(bouttons.firstChild); 
+  } 
   let chapitre = chapters[clef];
   if (chapitre) {
+    titre.innerText = chapitre.titre
+    image.src = chapitre.image
+    description.innerText = chapitre.description
     console.log(`${chapitre.titre} \n ${chapitre.description}`);
     let arr = chapitre.bouttons;
-    arr.forEach((bouton) => {
-      console.log(`\n \n ${bouton.titre} \n ${bouton.destination}`);
+    arr.forEach((boutton) => {
+      console.log(`\n \n ${boutton.titre} \n ${boutton.destination}`);
     });
+
+    for (let i = 0; i < chapitre.bouttons.length; i++) { 
+      // on crée un nouveau bouton 
+      const nouveauBtn = document.createElement('button'); 
+      // on applique un libellé au boutons
+      nouveauBtn.textContent = chapitre.bouttons[i].titre; 
+      // on appele goToChapter lorsqu'on clique le bouton 
+      nouveauBtn.addEventListener('click', () => { 
+        // la destination, c'est la destination du bouton! 
+        goToChapter(chapitre.bouttons[i].destination) 
+      }); 
+      // enfin, on ajoute le bouton dans la page Web (dans le DOM) 
+    
+      bouttons.appendChild(nouveauBtn); 
+    
+    }; 
   } else {
     console.log(`there's nothing here human!`);
   }
 }
 
 goToChapter(`debut`);
+
+
  /*` \n \n options \n ---------------------------------------- \n ${chapters[clef].bouttons[0].titre} \n ${chapters[clef].bouttons[0].destination}\n ${chapters[clef].bouttons[1].titre} \n ${chapters[clef].bouttons[1].destination} \n \n ${chapters[clef].bouttons[2].titre} \n ${chapters[clef].bouttons[2].destination}`*/
 /*chapters = {
     debut: {
