@@ -1,4 +1,4 @@
-let chapters = {
+const chapters = {
   debut: {
     titre: `Début insolite`,
     description: `Tu te réveilles dans une toilette qui pue et tu sors. Une fois sorti, tu entends une voix au loin... Veux-tu exploré les bruts suspects?`,
