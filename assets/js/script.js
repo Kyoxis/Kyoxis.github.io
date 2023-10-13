@@ -19,14 +19,14 @@ const chapters = {
   ignore: {
     titre: `Mort solitaire`,
     description: `Tu as ignoré la voix qui se lamentait. Malheureusement, tu n'as aucune expertise en survie et tu meurs de faim au bout de 8 jours de souffrance !`,
-    image: `images/faim.jpeg`,
+    image: `images/assets/faim.jpeg`,
     bouttons: [{ titre: "... au début", destination: "debut" }],
   },
 
   aventure: {
     titre: `Rencontre insolite`,
     description: `Tu trouves une créature humanoïde qui gémit de douleur près d'un pin; elle semble effrayée...`,
-    image: `./images/trouve.jpeg`,
+    image: `./assets/images/trouve.jpeg`,
     bouttons: [
       {
         titre: "1- Tu tente de la tuer",
@@ -42,7 +42,7 @@ const chapters = {
   pitie: {
     titre: `Hésitation`,
     description: `Tu fuis la créature, mais ton cœur te ramène à l'écoute des gémissements de la créature en détresse!`,
-    image: `images/pense.jpeg`,
+    image: `./assets/images/pense.jpeg`,
     bouttons: [
       {
         titre: "...",
@@ -54,14 +54,14 @@ const chapters = {
   defence: {
     titre: `Mort par autodéfense`,
     description: `La créature à un bon souper grâce à ton courage.`,
-    image: `./images/bouffe.jpeg`,
+    image: `./assets/images/bouffe.jpeg`,
     bouttons: [{ titre: "... au début", destination: "debut" }],
   },
 
   aide: {
     titre: `Une méthode de secours`,
     description: `La créature est piégée par un piège à ours, sa jambe est coincée!`,
-    image: `images/Peur.jpeg`,
+    image: `./assets/images/Peur.jpeg`,
     bouttons: [
       { titre: "1- Tu utilises la force", destination: "force" },
 
@@ -80,14 +80,14 @@ const chapters = {
   force: {
     titre: `Double suicide`,
     description: `La créature t'attaque de douleur puis vous mourrez les deux de  vos blessures.`,
-    image: `./images/suicide.jpeg`,
+    image: `./assets/images/suicide.jpeg`,
     bouttons: [{ titre: "... au début", destination: "debut" }],
   },
 
   rassure: {
     titre: `Affection sauvage`,
     description: `La créature semble très prise de toi... `,
-    image: `./images/amour.jpeg`,
+    image: `./assets/images/amour.jpeg`,
     bouttons: [
       { titre: "1- tu accepte", destination: "eternity" },
 
@@ -99,7 +99,7 @@ const chapters = {
     titre: `Amour illusoire`,
     description: `Félicitations, tu es l'âme sœur du Wendigo!
         Dommage que tu vas te réveiller dans les toilettes!`,
-    image: `images/confused.png`,
+    image: `./assets/images/confused.png`,
     bouttons: [
       { titre: "refaire une partie", destination: "debut" },
     ],
@@ -108,14 +108,14 @@ const chapters = {
   briser: {
     titre: `Mort pour un rejet`,
     description: `Tu lui as brisé le cœur, donc la créature a pris le tien.`,
-    image: `images/heart.jpeg`,
+    image: `./assets/images/heart.jpeg`,
     bouttons: [{ titre: "... recommencez...", destination: "debut"}],
   },
 
   silence: {
     titre: `Aide silencieuse`,
     description: `La créature semble sourire et celle-ci te tend la main...`,
-    image: `./images/amour.jpeg`,
+    image: `./assets/images/amour.jpeg`,
     bouttons: [ 
       { titre: "1- tu accepte", destination: "incidieux" },
       { titre: "2- tu refuse", destination: "briser" },
@@ -125,7 +125,7 @@ const chapters = {
   incidieux: {
     titre: `Piège`,
     description: `La créature t'a piégé et elle te tue`,
-    image: `./images/piege.jpeg`,
+    image: `./assets/images/piege.jpeg`,
     bouttons: [{ titre: "... au début", destination: "debut" }],
   },
 };
