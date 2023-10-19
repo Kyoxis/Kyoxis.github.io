@@ -202,3 +202,6 @@ fonction goToChapter(chapter) {
 //couleurs #040f0f, #6f1d1b, #657153, #e0e2db, #e5dcc5
 
 
+//mon readme.md revient toujours en miniuscule à l'aide!
+
+
