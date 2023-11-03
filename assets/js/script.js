@@ -1,7 +1,7 @@
 const chapters = {
   debut: {
     titre: `Début insolite`,
-    description: `Tu te réveilles dans une toilette qui pue et tu sors. Une fois sorti, tu entends une voix au loin... Veux-tu exploré les bruts suspects?`,
+    description: `Tu te réveilles dans une toilette qui pue et tu sors. Une fois sorti, tu entends une voix au loin... Veux-tu exploré les bruits suspects?`,
     image: "./assets/images/Shrek's_toilet.jpeg",
     bouttons: [
       {
@@ -100,23 +100,21 @@ const chapters = {
     description: `Félicitations, tu es l'âme sœur du Wendigo!
         Dommage que tu vas te réveiller dans les toilettes!`,
     image: `./assets/images/confused.png`,
-    bouttons: [
-      { titre: "refaire une partie", destination: "debut" },
-    ],
+    bouttons: [{ titre: "refaire une partie", destination: "debut" }],
   },
 
   briser: {
     titre: `Mort pour un rejet`,
     description: `Tu lui as brisé le cœur, donc la créature a pris le tien.`,
     image: `./assets/images/heart.jpeg`,
-    bouttons: [{ titre: "... recommencez...", destination: "debut"}],
+    bouttons: [{ titre: "... recommencez...", destination: "debut" }],
   },
 
   silence: {
     titre: `Aide silencieuse`,
     description: `La créature semble sourire et celle-ci te tend la main...`,
     image: `./assets/images/amour.jpeg`,
-    bouttons: [ 
+    bouttons: [
       { titre: "1- tu accepte", destination: "incidieux" },
       { titre: "2- tu refuse", destination: "briser" },
     ],
@@ -130,45 +128,61 @@ const chapters = {
   },
 };
 
-let image = document.querySelector(`#back`)
+let image = document.querySelector(`#back`);
 let titre = document.querySelector(`h1`);
-let description = document.querySelector(`p`)
+let description = document.querySelector(`p`);
 
+// Supprime tous les boutons enfants du div .boutons
 
-// Supprime tous les boutons enfants du div .boutons 
-
-const bouttons = document.querySelector('.boutons'); 
+const bouttons = document.querySelector(".boutons");
+var msg = new SpeechSynthesisUtterance();
+var voices = window.speechSynthesis.getVoices();
+msg.lang = 'fr';
+msg.volume = 1; 
+msg.rate = 1; 
+msg.pitch = 1; 
+msg.voice = voices[1];
 
 function goToChapter(clef) {
   while (bouttons.firstChild) {
-    bouttons.removeChild(bouttons.firstChild); 
-  } 
+    bouttons.removeChild(bouttons.firstChild);
+  }
   let chapitre = chapters[clef];
   if (chapitre) {
-    titre.innerText = chapitre.titre
-    image.src = chapitre.image
-    description.innerText = chapitre.description
+    titre.innerText = chapitre.titre;
+    image.src = chapitre.image;
+    description.innerText = chapitre.description;
     console.log(`${chapitre.titre} \n ${chapitre.description}`);
     let arr = chapitre.bouttons;
+
+
+    msg.text = chapitre.description;
+    window.speechSynthesis.speak(msg);
+
     arr.forEach((boutton) => {
       console.log(`\n \n ${boutton.titre} \n ${boutton.destination}`);
+      if ("speechSynthesis" in window) {
+        // Speech Synthesis supported 🎉
+      } else {
+        // Speech Synthesis Not Supported 😣
+        alert("Sorry, your browser doesn't support text to speech!");
+      }
     });
 
-    for (let i = 0; i < chapitre.bouttons.length; i++) { 
-      // on crée un nouveau bouton 
-      const nouveauBtn = document.createElement('button'); 
+    for (let i = 0; i < chapitre.bouttons.length; i++) {
+      // on crée un nouveau bouton
+      const nouveauBtn = document.createElement("button");
       // on applique un libellé au boutons
-      nouveauBtn.textContent = chapitre.bouttons[i].titre; 
-      // on appele goToChapter lorsqu'on clique le bouton 
-      nouveauBtn.addEventListener('click', () => { 
-        // la destination, c'est la destination du bouton! 
-        goToChapter(chapitre.bouttons[i].destination) 
-      }); 
-      // enfin, on ajoute le bouton dans la page Web (dans le DOM) 
-    
-      bouttons.appendChild(nouveauBtn); 
+      nouveauBtn.textContent = chapitre.bouttons[i].titre;
+      // on appele goToChapter lorsqu'on clique le bouton
+      nouveauBtn.addEventListener("click", () => {
+        // la destination, c'est la destination du bouton!
+        goToChapter(chapitre.bouttons[i].destination);
+      });
+      // enfin, on ajoute le bouton dans la page Web (dans le DOM)
 
-    }; 
+      bouttons.appendChild(nouveauBtn);
+    }
   } else {
     console.log(`there's nothing here human!`);
   }
@@ -176,8 +190,7 @@ function goToChapter(clef) {
 
 goToChapter(`debut`);
 
-
- /*` \n \n options \n ---------------------------------------- \n ${chapters[clef].bouttons[0].titre} \n ${chapters[clef].bouttons[0].destination}\n ${chapters[clef].bouttons[1].titre} \n ${chapters[clef].bouttons[1].destination} \n \n ${chapters[clef].bouttons[2].titre} \n ${chapters[clef].bouttons[2].destination}`*/
+/*` \n \n options \n ---------------------------------------- \n ${chapters[clef].bouttons[0].titre} \n ${chapters[clef].bouttons[0].destination}\n ${chapters[clef].bouttons[1].titre} \n ${chapters[clef].bouttons[1].destination} \n \n ${chapters[clef].bouttons[2].titre} \n ${chapters[clef].bouttons[2].destination}`*/
 /*chapters = {
     debut: {
          le titre
@@ -201,7 +214,4 @@ fonction goToChapter(chapter) {
 
 //couleurs #040f0f, #6f1d1b, #657153, #e0e2db, #e5dcc5
 
-
 //mon readme.md revient toujours en miniuscule à l'aide!
-
-
