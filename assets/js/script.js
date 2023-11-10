@@ -22,6 +22,7 @@ const chapters = {
     image: `assets/images/faim.jpeg`,
     musique: `you_died_music.mp3`,
     audio: `./assets/effecs/death_by_ignore.mp3`,
+    audioVolume: 0.5,
     bouttons: [{ titre: "... au début", destination: "debut" }],
   },
 
@@ -63,6 +64,7 @@ const chapters = {
     musique: `you_died_music.mp3`,
     image: `./assets/images/bouffe.jpeg`,
     audio: `./assets/effecs/cris_mort.mp3`,
+    audioVolume: 0.5,
     bouttons: [{ titre: "... au début", destination: "debut" }],
   },
 
@@ -71,6 +73,7 @@ const chapters = {
     description: `La créature est piégée par un piège à ours, sa jambe est coincée!`,
     musique: `musique_jeu_romance_horreur.mp3`,
     audio: `./assets/effecs/help.mp3`,
+    audioVolume: 0.2,
     image: `./assets/images/Peur.jpeg`,
     bouttons: [
       { titre: "1- Tu utilises la force", destination: "force" },
@@ -93,6 +96,7 @@ const chapters = {
     image: `./assets/images/suicide.jpeg`,
     musique: `you_died_music.mp3`,
     audio: `./assets/effecs/cris_mort.mp3`,
+    audioVolume: 0.5,
     bouttons: [{ titre: "... au début", destination: "debut" }],
   },
 
@@ -102,6 +106,7 @@ const chapters = {
     image: `./assets/images/amour.jpeg`,
     musique: `musique_jeu_romance_horreur.mp3`,
     audio: `./assets/effecs/thank_you_rassure.mp3`,
+    audioVolume: 1,
     bouttons: [
       { titre: "1- tu accepte", destination: "eternity" },
 
@@ -124,6 +129,7 @@ const chapters = {
     image: `./assets/images/heart.jpeg`,
     musique: `you_died_music.mp3`,
     audio: `./assets/effecs/cris_mort.mp3`,
+    audioVolume: 0.5,
     bouttons: [{ titre: "... recommencez...", destination: "debut" }],
   },
 
@@ -132,7 +138,7 @@ const chapters = {
     description: `La créature semble sourire et celle-ci te tend la main...`,
     image: `./assets/images/amour.jpeg`,
     musique: `musique_jeu_romance_horreur.mp3`,
-    audio: `./assets/effecs/help_silent.mp3`,
+    audio: `./assets/effecs/help_silent.mp3`, 
     bouttons: [
       { titre: "1- tu accepte", destination: "incidieux" },
       { titre: "2- tu refuse", destination: "briser" },
@@ -145,6 +151,7 @@ const chapters = {
     image: `./assets/images/piege.jpeg`,
     musique: `you_died_music.mp3`,
     audio: `./assets/effecs/incidieux_soundeffect.mp3`,
+    audioVolume: 0.5,
     bouttons: [{ titre: "... au début", destination: "debut" }],
   },
 };
@@ -154,6 +161,7 @@ let titre = document.querySelector(`h1`);
 let description = document.querySelector(`p`);
 let audio = document.createElement(`audio`);
 const musique = document.createElement(`audio`);
+musique.volume = 0.3;
 
 // Supprime tous les boutons enfants du div .boutons
 
@@ -161,7 +169,7 @@ const bouttons = document.querySelector(".boutons");
 var msg = new SpeechSynthesisUtterance();
 var voices = window.speechSynthesis.getVoices();
 msg.lang = 'fr';
-msg.volume = 1; 
+msg.volume = 5; 
 msg.rate = 1; 
 msg.pitch = 1; 
 msg.voice = voices[1];
@@ -184,7 +192,7 @@ function goToChapter(clef) {
   
     setTimeout(function(){
         window.speechSynthesis.speak(msg);
-    },3000)
+    },7000);
 
     arr.forEach((boutton) => {
       console.log(`\n \n ${boutton.titre} \n ${boutton.destination}`);
@@ -204,9 +212,12 @@ function goToChapter(clef) {
       audio.pause()
       audio.currentTime = 0;
     }
+    if(chapitre.audioVolume){
+      audio.volume = chapitre.audioVolume;
+    }
 
     if(!musique.src.endsWith(chapitre.musique) && chapitre.musique != undefined) {
-      musique.src = '' + chapitre.musique;
+      musique.src = './assets/music/' + chapitre.musique;
       musique.play()
 
       console.log('New sound');
