@@ -20,7 +20,7 @@ const chapters = {
     titre: `Mort solitaire`,
     description: `Tu as ignoré la voix qui se lamentait. Malheureusement, tu n'as aucune expertise en survie et tu meurs de soif au bout de 4 jours de souffrance !`,
     image: `assets/images/faim.jpeg`,
-    musique: `./assets/music/you_died_music.mp3`,
+    musique: `you_died_music.mp3`,
     audio: `./assets/effecs/death_by_ignore.mp3`,
     bouttons: [{ titre: "... au début", destination: "debut" }],
   },
@@ -30,7 +30,7 @@ const chapters = {
     description: `Tu trouves une créature humanoïde qui gémit de douleur près d'un pin; elle semble effrayée...`,
     image: `./assets/images/trouve.jpeg`,
     audio: `./assets/effecs/huh_aventure.mp3`,
-    musique: `./assets/music/musique_jeu_romance_horreur.mp3`,
+    musique: `musique_jeu_romance_horreur.mp3`,
     bouttons: [
       {
         titre: "1- Tu tente de la tuer",
@@ -47,7 +47,7 @@ const chapters = {
     titre: `Hésitation`,
     description: `Tu fuis la créature, mais ton cœur te ramène à l'écoute des gémissements de la créature en détresse!`,
     image: `./assets/images/pense.jpeg`,
-    musique: `./assets/music/musique_jeu_romance_horreur.mp3`,
+    musique: `musique_jeu_romance_horreur.mp3`,
     audio: `./assets/effecs/guilty_heart.mp3`,
     bouttons: [
       {
@@ -60,7 +60,7 @@ const chapters = {
   defence: {
     titre: `Mort par autodéfense`,
     description: `La créature à un bon souper grâce à ton courage.`,
-    musique: `./assets/music/you_died_music.mp3`,
+    musique: `you_died_music.mp3`,
     image: `./assets/images/bouffe.jpeg`,
     audio: `./assets/effecs/cris_mort.mp3`,
     bouttons: [{ titre: "... au début", destination: "debut" }],
@@ -69,7 +69,7 @@ const chapters = {
   aide: {
     titre: `Une méthode de secours`,
     description: `La créature est piégée par un piège à ours, sa jambe est coincée!`,
-    musique: `./assets/music/musique_jeu_romance_horreur.mp3`,
+    musique: `musique_jeu_romance_horreur.mp3`,
     audio: `./assets/effecs/help.mp3`,
     image: `./assets/images/Peur.jpeg`,
     bouttons: [
@@ -91,7 +91,7 @@ const chapters = {
     titre: `Double suicide`,
     description: `La créature t'attaque de douleur puis vous mourrez les deux de  vos blessures.`,
     image: `./assets/images/suicide.jpeg`,
-    musique: `./assets/music/you_died_music.mp3`,
+    musique: `you_died_music.mp3`,
     audio: `./assets/effecs/cris_mort.mp3`,
     bouttons: [{ titre: "... au début", destination: "debut" }],
   },
@@ -100,7 +100,7 @@ const chapters = {
     titre: `Affection sauvage`,
     description: `La créature semble très prise de toi... `,
     image: `./assets/images/amour.jpeg`,
-    musique: `./assets/music/musique_jeu_romance_horreur.mp3`,
+    musique: `musique_jeu_romance_horreur.mp3`,
     audio: `./assets/effecs/thank_you_rassure.mp3`,
     bouttons: [
       { titre: "1- tu accepte", destination: "eternity" },
@@ -114,7 +114,7 @@ const chapters = {
     description: `Félicitations, tu es l'âme sœur du Wendigo!
         Dommage que tu vas te réveiller dans les toilettes!`,
     image: `./assets/images/confused.png`,
-    musique: `./assets/music/tu_as_jouer_pour_rein.mp3`,
+    musique: `tu_as_jouer_pour_rein.mp3`,
     bouttons: [{ titre: "refaire une partie", destination: "debut" }],
   },
 
@@ -122,7 +122,7 @@ const chapters = {
     titre: `Mort pour un rejet`,
     description: `Tu lui as brisé le cœur, donc la créature a pris le tien.`,
     image: `./assets/images/heart.jpeg`,
-    musique: `./assets/music/you_died_music.mp3`,
+    musique: `you_died_music.mp3`,
     audio: `./assets/effecs/cris_mort.mp3`,
     bouttons: [{ titre: "... recommencez...", destination: "debut" }],
   },
@@ -131,7 +131,7 @@ const chapters = {
     titre: `Aide silencieuse`,
     description: `La créature semble sourire et celle-ci te tend la main...`,
     image: `./assets/images/amour.jpeg`,
-    musique: `./assets/music/musique_jeu_romance_horreur.mp3`,
+    musique: `musique_jeu_romance_horreur.mp3`,
     audio: `./assets/effecs/help_silent.mp3`,
     bouttons: [
       { titre: "1- tu accepte", destination: "incidieux" },
@@ -143,7 +143,7 @@ const chapters = {
     titre: `Piège`,
     description: `La créature t'a piégé et elle te tue`,
     image: `./assets/images/piege.jpeg`,
-    musique: `./assets/music/you_died_music.mp3`,
+    musique: `you_died_music.mp3`,
     audio: `./assets/effecs/incidieux_soundeffect.mp3`,
     bouttons: [{ titre: "... au début", destination: "debut" }],
   },
@@ -169,7 +169,8 @@ msg.voice = voices[1];
 function goToChapter(clef) {
   while (bouttons.firstChild) {
     bouttons.removeChild(bouttons.firstChild);
-  }
+  } 
+  window.speechSynthesis.cancel(msg);
   let chapitre = chapters[clef];
   if (chapitre) {
     titre.innerText = chapitre.titre;
@@ -180,8 +181,10 @@ function goToChapter(clef) {
 
 
     msg.text = chapitre.description;
-    window.speechSynthesis.speak(msg);
-    
+  
+    setTimeout(function(){
+        window.speechSynthesis.speak(msg);
+    },3000)
 
     arr.forEach((boutton) => {
       console.log(`\n \n ${boutton.titre} \n ${boutton.destination}`);
@@ -201,14 +204,16 @@ function goToChapter(clef) {
       audio.pause()
       audio.currentTime = 0;
     }
-    if(chapitre.musique) {
-      musique.src = chapitre.musique;
+
+    if(!musique.src.endsWith(chapitre.musique) && chapitre.musique != undefined) {
+      musique.src = '' + chapitre.musique;
       musique.play()
+
+      console.log('New sound');
+      console.log('chapter son -' + chapitre.musique);
+      console.log('current son -' + musique.src);
     }
-    else{
-      musique.pause()
-      musique.currentTime = 0;
-    }
+
 
     for (let i = 0; i < chapitre.bouttons.length; i++) {
       // on crée un nouveau bouton
