@@ -62,11 +62,25 @@ p {
     margin-top: 5%;
 }
 
-
 img {
     display: flex;
     justify-content: center;
     max-height: 50vh;
+}
+
+video {
+    display: flex;
+    justify-content: center;
+    max-height: 50vh;
+
+}
+
+#backv {
+    max-width: 100%;
+    border-radius: 25%;
+    filter: drop-shadow(0 0 10px #000);
+    margin-bottom: 5%;
+    margin-top: 5%;
 }
 
 button:hover {
@@ -75,6 +89,10 @@ button:hover {
     border-style: outset;
     border-color: var(--falured);
     border-radius: 15%;
+}
+
+.hidden {
+    display: none;
 }
 
 /* Desktop  */

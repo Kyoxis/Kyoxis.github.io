@@ -75,6 +75,7 @@ const chapters = {
     audio: `./assets/effecs/help.mp3`,
     audioVolume: 0.2,
     image: `./assets/images/Peur.jpeg`,
+    video: `./assets/video/traped_mp4_1920_1080.mp4`,
     bouttons: [
       { titre: "1- Tu utilises la force", destination: "force" },
 
@@ -127,8 +128,10 @@ const chapters = {
     titre: `Mort pour un rejet`,
     description: `Tu lui as brisé le cœur, donc la créature a pris le tien.`,
     image: `./assets/images/heart.jpeg`,
+    video: `./assets/video/broken_mp4_1920_1080.mp4`,
     musique: `you_died_music.mp3`,
     audio: `./assets/effecs/cris_mort.mp3`,
+
     audioVolume: 0.5,
     bouttons: [{ titre: "... recommencez...", destination: "debut" }],
   },
@@ -160,6 +163,7 @@ let image = document.querySelector(`#back`);
 let titre = document.querySelector(`h1`);
 let description = document.querySelector(`p`);
 let audio = document.createElement(`audio`);
+let video = document.querySelector(`video`);
 const musique = document.createElement(`audio`);
 musique.volume = 0.3;
 
@@ -214,6 +218,17 @@ function goToChapter(clef) {
     }
     if(chapitre.audioVolume){
       audio.volume = chapitre.audioVolume;
+    }
+
+    if(chapitre.video){
+      video.classList.remove(`hidden`);
+      image.classList.add(`hidden`);    
+      video.play(); 
+      video.currentTime = 0;
+    }
+    else{
+      video.classList.add(`hidden`);
+      image.classList.remove(`hidden`);
     }
 
     if(!musique.src.endsWith(chapitre.musique) && chapitre.musique != undefined) {
