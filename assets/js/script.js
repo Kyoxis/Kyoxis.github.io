@@ -13,6 +13,7 @@ const chapters = {
         titre: "2- Aller voir ce qui souffre autant",
         destination: "aventure",
       },
+      { titre: "reset", destination: "debut" },
     ],
   },
 
@@ -23,7 +24,7 @@ const chapters = {
     musique: `you_died_music.mp3`,
     audio: `./assets/effecs/death_by_ignore.mp3`,
     audioVolume: 0.5,
-    bouttons: [{ titre: "... au début", destination: "debut" }],
+    bouttons: [{ titre: "... au début", destination: "debut" },{ titre: "reset", destination: "debut" },],
   },
 
   aventure: {
@@ -41,6 +42,7 @@ const chapters = {
       { titre: "2- Tu fuis", destination: "pitie" },
 
       { titre: "3- Tu essai de l'aider", destination: "aide" },
+      { titre: "reset", destination: "debut" },
     ],
   },
 
@@ -55,6 +57,7 @@ const chapters = {
         titre: "...",
         destination: "debut",
       },
+      { titre: "reset", destination: "debut" },
     ],
   },
 
@@ -65,7 +68,8 @@ const chapters = {
     image: `./assets/images/bouffe.jpeg`,
     audio: `./assets/effecs/cris_mort.mp3`,
     audioVolume: 0.5,
-    bouttons: [{ titre: "... au début", destination: "debut" }],
+    bouttons: [{ titre: "... au début", destination: "debut" },
+    { titre: "reset", destination: "debut" },],
   },
 
   aide: {
@@ -88,6 +92,7 @@ const chapters = {
         titre: "3- Tu l'aide sans parler",
         destination: "silence",
       },
+      { titre: "reset", destination: "debut" },
     ],
   },
 
@@ -98,7 +103,8 @@ const chapters = {
     musique: `you_died_music.mp3`,
     audio: `./assets/effecs/cris_mort.mp3`,
     audioVolume: 0.5,
-    bouttons: [{ titre: "... au début", destination: "debut" }],
+    bouttons: [{ titre: "... au début", destination: "debut" },
+    { titre: "reset", destination: "debut" },],
   },
 
   rassure: {
@@ -112,6 +118,7 @@ const chapters = {
       { titre: "1- tu accepte", destination: "eternity" },
 
       { titre: "2- tu refuse", destination: "briser" },
+      { titre: "reset", destination: "debut" },
     ],
   },
 
@@ -121,7 +128,7 @@ const chapters = {
         Dommage que tu vas te réveiller dans les toilettes!`,
     image: `./assets/images/confused.png`,
     musique: `tu_as_jouer_pour_rein.mp3`,
-    bouttons: [{ titre: "refaire une partie", destination: "debut" }],
+    bouttons: [{ titre: "refaire une partie", destination: "debut" },{ titre: "reset", destination: "debut" },],
   },
 
   briser: {
@@ -133,7 +140,7 @@ const chapters = {
     audio: `./assets/effecs/cris_mort.mp3`,
 
     audioVolume: 0.5,
-    bouttons: [{ titre: "... recommencez...", destination: "debut" }],
+    bouttons: [{ titre: "... recommencez...", destination: "debut" },{ titre: "reset", destination: "debut" },],
   },
 
   silence: {
@@ -145,6 +152,7 @@ const chapters = {
     bouttons: [
       { titre: "1- tu accepte", destination: "incidieux" },
       { titre: "2- tu refuse", destination: "briser" },
+      { titre: "reset", destination: "debut" },
     ],
   },
 
@@ -155,7 +163,7 @@ const chapters = {
     musique: `you_died_music.mp3`,
     audio: `./assets/effecs/incidieux_soundeffect.mp3`,
     audioVolume: 0.5,
-    bouttons: [{ titre: "... au début", destination: "debut" }],
+    bouttons: [{ titre: "... au début", destination: "debut" },{ titre: "reset", destination: "debut" },],
   },
 };
 
