@@ -222,7 +222,8 @@ function goToChapter(clef) {
 
     if(chapitre.video){
       video.classList.remove(`hidden`);
-      image.classList.add(`hidden`);    
+      image.classList.add(`hidden`);
+      video.src = chapitre.video;    
       video.play(); 
       video.currentTime = 0;
     }
