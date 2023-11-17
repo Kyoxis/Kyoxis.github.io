@@ -302,8 +302,3 @@ fonction goToChapter(chapter) {
 
 //mon readme.md revient toujours en miniuscule à l'aide!
 
-//tu scroll-tu encore?
-
-//abandonne!
-
-//youpi, t'est endu au fond! content?
