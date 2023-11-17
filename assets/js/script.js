@@ -13,7 +13,6 @@ const chapters = {
         titre: "2- Aller voir ce qui souffre autant",
         destination: "aventure",
       },
-      { titre: "reset", destination: "debut" },
     ],
   },
 
@@ -24,7 +23,7 @@ const chapters = {
     musique: `you_died_music.mp3`,
     audio: `./assets/effecs/death_by_ignore.mp3`,
     audioVolume: 0.5,
-    bouttons: [{ titre: "... au début", destination: "debut" },{ titre: "reset", destination: "debut" },],
+    bouttons: [{ titre: "... au début", destination: "debut" }],
   },
 
   aventure: {
@@ -42,7 +41,6 @@ const chapters = {
       { titre: "2- Tu fuis", destination: "pitie" },
 
       { titre: "3- Tu essai de l'aider", destination: "aide" },
-      { titre: "reset", destination: "debut" },
     ],
   },
 
@@ -57,7 +55,6 @@ const chapters = {
         titre: "...",
         destination: "debut",
       },
-      { titre: "reset", destination: "debut" },
     ],
   },
 
@@ -68,8 +65,7 @@ const chapters = {
     image: `./assets/images/bouffe.jpeg`,
     audio: `./assets/effecs/cris_mort.mp3`,
     audioVolume: 0.5,
-    bouttons: [{ titre: "... au début", destination: "debut" },
-    { titre: "reset", destination: "debut" },],
+    bouttons: [{ titre: "... au début", destination: "debut" }],
   },
 
   aide: {
@@ -92,7 +88,6 @@ const chapters = {
         titre: "3- Tu l'aide sans parler",
         destination: "silence",
       },
-      { titre: "reset", destination: "debut" },
     ],
   },
 
@@ -103,8 +98,7 @@ const chapters = {
     musique: `you_died_music.mp3`,
     audio: `./assets/effecs/cris_mort.mp3`,
     audioVolume: 0.5,
-    bouttons: [{ titre: "... au début", destination: "debut" },
-    { titre: "reset", destination: "debut" },],
+    bouttons: [{ titre: "... au début", destination: "debut" }],
   },
 
   rassure: {
@@ -118,7 +112,6 @@ const chapters = {
       { titre: "1- tu accepte", destination: "eternity" },
 
       { titre: "2- tu refuse", destination: "briser" },
-      { titre: "reset", destination: "debut" },
     ],
   },
 
@@ -128,7 +121,7 @@ const chapters = {
         Dommage que tu vas te réveiller dans les toilettes!`,
     image: `./assets/images/confused.png`,
     musique: `tu_as_jouer_pour_rein.mp3`,
-    bouttons: [{ titre: "refaire une partie", destination: "debut" },{ titre: "reset", destination: "debut" },],
+    bouttons: [{ titre: "refaire une partie", destination: "debut" }],
   },
 
   briser: {
@@ -140,7 +133,7 @@ const chapters = {
     audio: `./assets/effecs/cris_mort.mp3`,
 
     audioVolume: 0.5,
-    bouttons: [{ titre: "... recommencez...", destination: "debut" },{ titre: "reset", destination: "debut" },],
+    bouttons: [{ titre: "... recommencez...", destination: "debut" }],
   },
 
   silence: {
@@ -148,11 +141,10 @@ const chapters = {
     description: `La créature semble sourire et celle-ci te tend la main...`,
     image: `./assets/images/amour.jpeg`,
     musique: `musique_jeu_romance_horreur.mp3`,
-    audio: `./assets/effecs/help_silent.mp3`, 
+    audio: `./assets/effecs/help_silent.mp3`,
     bouttons: [
       { titre: "1- tu accepte", destination: "incidieux" },
       { titre: "2- tu refuse", destination: "briser" },
-      { titre: "reset", destination: "debut" },
     ],
   },
 
@@ -163,7 +155,7 @@ const chapters = {
     musique: `you_died_music.mp3`,
     audio: `./assets/effecs/incidieux_soundeffect.mp3`,
     audioVolume: 0.5,
-    bouttons: [{ titre: "... au début", destination: "debut" },{ titre: "reset", destination: "debut" },],
+    bouttons: [{ titre: "... au début", destination: "debut" }],
   },
 };
 
@@ -180,16 +172,17 @@ musique.volume = 0.3;
 const bouttons = document.querySelector(".boutons");
 var msg = new SpeechSynthesisUtterance();
 var voices = window.speechSynthesis.getVoices();
-msg.lang = 'fr';
-msg.volume = 5; 
-msg.rate = 1; 
-msg.pitch = 1; 
+msg.lang = "fr";
+msg.volume = 5;
+msg.rate = 1;
+msg.pitch = 1;
 msg.voice = voices[1];
 
 function goToChapter(clef) {
+  localStorage.setItem("sauvegarde", clef);
   while (bouttons.firstChild) {
     bouttons.removeChild(bouttons.firstChild);
-  } 
+  }
   window.speechSynthesis.cancel(msg);
   let chapitre = chapters[clef];
   if (chapitre) {
@@ -198,13 +191,11 @@ function goToChapter(clef) {
     description.innerText = chapitre.description;
     console.log(`${chapitre.titre} \n ${chapitre.description}`);
     let arr = chapitre.bouttons;
-
-
     msg.text = chapitre.description;
-  
-    setTimeout(function(){
-        window.speechSynthesis.speak(msg);
-    },7000);
+
+    setTimeout(function () {
+      window.speechSynthesis.speak(msg);
+    }, 7000);
 
     arr.forEach((boutton) => {
       console.log(`\n \n ${boutton.titre} \n ${boutton.destination}`);
@@ -216,39 +207,39 @@ function goToChapter(clef) {
       }
     });
 
-    if(chapitre.audio) {
+    if (chapitre.audio) {
       audio.src = chapitre.audio;
-      audio.play()
-    }
-    else{
-      audio.pause()
+      audio.play();
+    } else {
+      audio.pause();
       audio.currentTime = 0;
     }
-    if(chapitre.audioVolume){
+    if (chapitre.audioVolume) {
       audio.volume = chapitre.audioVolume;
     }
 
-    if(chapitre.video){
+    if (chapitre.video) {
       video.classList.remove(`hidden`);
       image.classList.add(`hidden`);
-      video.src = chapitre.video;    
-      video.play(); 
+      video.src = chapitre.video;
+      video.play();
       video.currentTime = 0;
-    }
-    else{
+    } else {
       video.classList.add(`hidden`);
       image.classList.remove(`hidden`);
     }
 
-    if(!musique.src.endsWith(chapitre.musique) && chapitre.musique != undefined) {
-      musique.src = './assets/music/' + chapitre.musique;
-      musique.play()
+    if (
+      !musique.src.endsWith(chapitre.musique) &&
+      chapitre.musique != undefined
+    ) {
+      musique.src = "./assets/music/" + chapitre.musique;
+      musique.play();
 
-      console.log('New sound');
-      console.log('chapter son -' + chapitre.musique);
-      console.log('current son -' + musique.src);
+      console.log("New sound");
+      console.log("chapter son -" + chapitre.musique);
+      console.log("current son -" + musique.src);
     }
-
 
     for (let i = 0; i < chapitre.bouttons.length; i++) {
       // on crée un nouveau bouton
@@ -267,10 +258,23 @@ function goToChapter(clef) {
   } else {
     console.log(`there's nothing here human!`);
   }
-  //changer les éléments audio
 }
 
-goToChapter(`debut`);
+let save = localStorage.getItem("sauvegarde");
+
+if (save == null) {
+  goToChapter(`debut`);
+} else {
+  goToChapter(save);
+  console.log("save");
+  console.log(save);
+}
+
+document.querySelector("#reset").addEventListener("click", () => {
+  localStorage.clear();
+  console.log(localStorage);
+  goToChapter(`debut`);
+});
 
 /*` \n \n options \n ---------------------------------------- \n ${chapters[clef].bouttons[0].titre} \n ${chapters[clef].bouttons[0].destination}\n ${chapters[clef].bouttons[1].titre} \n ${chapters[clef].bouttons[1].destination} \n \n ${chapters[clef].bouttons[2].titre} \n ${chapters[clef].bouttons[2].destination}`*/
 /*chapters = {
@@ -297,3 +301,9 @@ fonction goToChapter(chapter) {
 //couleurs #040f0f, #6f1d1b, #657153, #e0e2db, #e5dcc5
 
 //mon readme.md revient toujours en miniuscule à l'aide!
+
+//tu scroll-tu encore?
+
+//abandonne!
+
+//youpi, t'est endu au fond! content?

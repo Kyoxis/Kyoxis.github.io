@@ -18,6 +18,7 @@
 }
 
 body{
+    position: relative;
     background: linear-gradient(var(--richblack)25%,var(--resedagreen)) no-repeat;
     min-height: 100vh;
     padding: 0 2rem;
@@ -66,6 +67,11 @@ img {
     display: flex;
     justify-content: center;
     max-height: 50vh;
+}
+#reset {
+    position: absolute;
+    top: 15px;
+    right: 15px;
 }
 
 video {
