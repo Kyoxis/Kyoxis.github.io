@@ -72,6 +72,11 @@ img {
     top: 15px;
     right: 15px;
 }
+.muted {
+    position: absolute;
+    bottom: 25px;
+    right: 50px;
+}
 
 video {
     display: flex;

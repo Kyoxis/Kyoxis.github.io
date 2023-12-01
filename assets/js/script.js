@@ -166,6 +166,37 @@ let audio = document.createElement(`audio`);
 let video = document.querySelector(`video`);
 const musique = document.createElement(`audio`);
 musique.volume = 0.3;
+let muted = document.getElementById("mute");
+
+/*mutebtn.addEventListener (change, fn(){
+si ma valeur est à décoché, joue la musique ambiante
+sinon ferme la
+
+})*/
+if(!muted.checked){
+  setTimeout(function () {
+  window.speechSynthesis.speak(msg);
+  }, 1000);
+}else{
+ window.speechSynthesis.pause(msg);
+ window.speechSynthesis.currentTime = 0;
+}
+
+
+muted.addEventListener('change', function() {
+  //if muted === checked fait ceci!
+  if(this.checked) {
+    musique.pause();
+    audio.pause();
+    window.speechSynthesis.muted;
+    window.speechSynthesis.currentTime = 0;
+  }else{
+    //if not fait ca!
+    musique.play();
+    audio.play();
+    window.speechSynthesis.speak(msg);
+  }
+});
 
 // Supprime tous les boutons enfants du div .boutons
 
@@ -193,10 +224,6 @@ function goToChapter(clef) {
     let arr = chapitre.bouttons;
     msg.text = chapitre.description;
 
-    setTimeout(function () {
-      window.speechSynthesis.speak(msg);
-    }, 7000);
-
     arr.forEach((boutton) => {
       console.log(`\n \n ${boutton.titre} \n ${boutton.destination}`);
       if ("speechSynthesis" in window) {
@@ -207,7 +234,7 @@ function goToChapter(clef) {
       }
     });
 
-    if (chapitre.audio) {
+    if (chapitre.audio && !muted.checked) {
       audio.src = chapitre.audio;
       audio.play();
     } else {
@@ -231,11 +258,10 @@ function goToChapter(clef) {
 
     if (
       !musique.src.endsWith(chapitre.musique) &&
-      chapitre.musique != undefined
+      chapitre.musique != undefined && !muted.checked
     ) {
       musique.src = "./assets/music/" + chapitre.musique;
       musique.play();
-
       console.log("New sound");
       console.log("chapter son -" + chapitre.musique);
       console.log("current son -" + musique.src);
@@ -258,6 +284,7 @@ function goToChapter(clef) {
   } else {
     console.log(`there's nothing here human!`);
   }
+
 }
 
 let save = localStorage.getItem("sauvegarde");
