@@ -173,22 +173,23 @@ si ma valeur est à décoché, joue la musique ambiante
 sinon ferme la
 
 })*/
+
 if(!muted.checked){
   setTimeout(function () {
   window.speechSynthesis.speak(msg);
   }, 1000);
 }else{
- window.speechSynthesis.pause(msg);
+ window.speechSynthesis.paused;
  window.speechSynthesis.currentTime = 0;
 }
 
 
 muted.addEventListener('change', function() {
   //if muted === checked fait ceci!
-  if(this.checked) {
+  if(this.checked == true) {
     musique.pause();
     audio.pause();
-    window.speechSynthesis.muted;
+    window.speechSynthesis.paused;
     window.speechSynthesis.currentTime = 0;
   }else{
     //if not fait ca!
@@ -197,7 +198,7 @@ muted.addEventListener('change', function() {
     window.speechSynthesis.speak(msg);
   }
 });
-
+//!!!doit cliquer 2 fois sur mute pour entendre la voix gossante!!!!!
 // Supprime tous les boutons enfants du div .boutons
 
 const bouttons = document.querySelector(".boutons");
