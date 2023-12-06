@@ -189,10 +189,14 @@ muted.addEventListener('change', function() {
   if(this.checked == true) {
     musique.pause();
     audio.pause();
+    audio.setitem("play audio")
+    musique.setitem("play musique")
     window.speechSynthesis.paused;
     window.speechSynthesis.currentTime = 0;
   }else{
     //if not fait ca!
+    audio.setitem("paused audio")
+    musique.setitem("paused musique")
     musique.play();
     audio.play();
     window.speechSynthesis.speak(msg);
