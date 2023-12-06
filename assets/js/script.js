@@ -190,14 +190,14 @@ muted.addEventListener('change', function() {
   if(this.checked == true) {
     musique.pause();
     audio.pause();
-    localStorage.setItem("audio", "is playing")
-    localStorage.setItem("musique", "is playing")
+    localStorage.setItem("audio", "is paused")
+    localStorage.setItem("musique", "is paused")
     window.speechSynthesis.paused;
     window.speechSynthesis.currentTime = 0;
   }else{
     //if not fait ca!
-    localStorage.setItem("audio", "is paused")
-    localStorage.setItem("musique", "is paused")
+    localStorage.setItem("audio", "is playing")
+    localStorage.setItem("musique", "is playing")
     musique.play();
     audio.play();
     window.speechSynthesis.speak(msg);
