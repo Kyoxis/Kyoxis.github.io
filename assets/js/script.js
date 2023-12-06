@@ -173,7 +173,8 @@ si ma valeur est à décoché, joue la musique ambiante
 sinon ferme la
 
 })*/
-
+localStorage.setItem("audio", "is playing");
+localStorage.setItem("musique", "is playing");
 if(!muted.checked){
   setTimeout(function () {
   window.speechSynthesis.speak(msg);
