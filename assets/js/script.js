@@ -189,8 +189,8 @@ muted.addEventListener('change', function() {
   if(this.checked == true) {
     musique.pause();
     audio.pause();
-    localStorage.setitem("audio", "is playing")
-    localStorage.setitem("musique", "is playing")
+    localStorage.setItem("audio", "is playing")
+    localStorage.setItem("musique", "is playing")
     window.speechSynthesis.paused;
     window.speechSynthesis.currentTime = 0;
   }else{
